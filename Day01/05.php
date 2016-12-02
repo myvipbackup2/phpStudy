@@ -70,10 +70,10 @@ if (isset($_GET['btn'])) {
             </td>
             <td>
                 <select name="fh" id="">
-                    <option value="+" <?php if ($fh=='+')echo 'selected' ?> >+</option>
-                    <option value="-" <?php if ($fh=='-')echo 'selected' ?> >-</option>
-                    <option value="*" <?php if ($fh=='*')echo 'selected' ?> >x</option>
-                    <option value="/" <?php if ($fh=='/')echo 'selected' ?> >/</option>
+                    <option value="+" <?php if ($fh == '+') echo 'selected' ?> >+</option>
+                    <option value="-" <?php if ($fh == '-') echo 'selected' ?> >-</option>
+                    <option value="*" <?php if ($fh == '*') echo 'selected' ?> >x</option>
+                    <option value="/" <?php if ($fh == '/') echo 'selected' ?> >/</option>
                 </select>
             </td>
             <td>
@@ -83,7 +83,7 @@ if (isset($_GET['btn'])) {
                 =
             </td>
             <td>
-                <input type="text" name="val"  value="<?php echo $val ?>">
+                <input disabled="disabled" type="text" name="val" value="<?php echo $val ?>">
             </td>
             <td>
                 <input type="submit" name="btn">
