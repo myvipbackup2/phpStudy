@@ -14,7 +14,7 @@
 ?>
 
 <meta charset="UTF-8">
-<form action="02-test.php" method="">
+<form action="02-GET和POST.php" method="">
 	year:<input type="text" name="year" value="1999">
 	<input type="submit" name="sub" value="提交">
 </form>

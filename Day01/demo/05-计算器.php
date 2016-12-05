@@ -50,7 +50,7 @@
 	<body>
 		<div id="div1">
 			<table width=400 align='center' border='1'>
-			<form action="05-test.php" method="post">
+			<form action="05-计算器.php" method="post">
 				<tr>
 					<td>num1:<input type="text" name="num1" value=<?php echo $num1?>></td>
 					<td>

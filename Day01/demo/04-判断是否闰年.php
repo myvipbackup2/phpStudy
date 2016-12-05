@@ -18,7 +18,7 @@
 
 
 <meta charset="utf-8">
-<form action="04-test.php" method="post">
+<form action="04-判断是否闰年.php" method="post">
 	year:<input type="text" name="year">
 	<input type="submit" name="sub" value="提交">
 </form>

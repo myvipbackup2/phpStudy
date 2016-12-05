@@ -21,7 +21,7 @@
 
 ?>
 <meta charset="utf-8">
-<form action="06-test.php" method="post">
+<form action="06-base64编码.php" method="post">
 	url:<input type="text" name="url">
 	<input type="submit" name="sub" value="转换">
 </form>

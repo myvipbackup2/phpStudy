@@ -25,7 +25,7 @@ if (isset($_GET['sub'])) {
 ?>
 
 <meta charset="utf-8">
-<form action="04.php" method="get">
+<form action="04判断是否闰年.php" method="get">
     year: <input type="text" name="year">
     <input type="submit" name="sub" value="提交">
 </form>
