@@ -62,7 +62,7 @@ if (isset($_GET['btn'])) {
 </head>
 <body>
 <h2>计算器</h2>
-<form action="05计算器.php" method="get">
+<form action="05.php" method="get">
     <table>
         <tr>
             <td>
