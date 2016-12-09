@@ -71,9 +71,10 @@ if (isset($_GET['btn'])) {
     </style>
 </head>
 <body>
-<h2>计算器</h2>
+<!--<h2>计算器</h2>-->
 <form action="05-calculator2.php" method="get">
     <table>
+        <caption><h2>计算器</h2></caption>
         <tr>
             <td>
                 <input type="text" name="num1" value="<?php echo $num1 ?>">
