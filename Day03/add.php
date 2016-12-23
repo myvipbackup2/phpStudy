@@ -22,9 +22,7 @@ if (isset($_POST['sub'])) {
     //2.string发送给数据库 string -> resource
 
     $query = mysqli_query($link, $sql);
-//    echo $sql;
-//    echo $query;
-//    die();
+
     if ($query) {
         echo 'ok';
 //        header('location:index.php');
