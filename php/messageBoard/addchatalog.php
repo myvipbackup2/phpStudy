@@ -10,23 +10,26 @@ include "conn.php";
 
 if (isset($_POST['sub'])) {
 
-    $cname = $_POST['caname'];
+    $cname = $_POST['cname'];
 
-    $sql = "select * from CATALOG WHENEVER cname = '$cname'";
+    $sql = "select * from CATALOG where cname = '$cname'";
 
     $query = mysqli_query($link, $sql);
 
     $result = mysqli_fetch_array($query);
 
-    if ($result){
+    if ($result) {
 
         echo "<script>alert('当前分类已经存在！')</script>";
 
-        echo "<script>window.location.reload()</script>";
+        echo "<script>window.location.href = 'addchatalog.php';</script>";
 
-    }else{
+    } else {
         $sql = "insert into CATALOG(cid,cname) VALUES(NULL,'$cname')";
-
+        $query = mysqli_query($link, $sql);
+        if ($query) {
+            echo "<script>window.location.href = 'add.php';</script>";
+        }
     }
 
 }
