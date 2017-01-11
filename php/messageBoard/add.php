@@ -12,15 +12,20 @@ if (isset($_POST['sub'])) {
     $title = $_POST['title'];
     $cid = $_POST['catalog'];
     $con = $_POST['con'];
+    $uid = $_COOKIE['id'];
+    if (!$uid) {
+        echo "<script>alert('请先登录！')</script>";
+        echo "<script>window.location.href='login.php'</script>";
+    } else {
+        $sql = "insert into blog(wid,title,content,time,cid,uid) VALUES(NULL ,'$title','$con',now(),'$cid','$uid')";
+        $query = mysqli_query($link, $sql);
 
-    $sql = "insert into blog(wid,title,content,time,cid) VALUES(NULL ,'$title','$con',now(),'$cid')";
-    $query = mysqli_query($link, $sql);
-
-    if ($query){
-        header('location:index.php');
-    }else{
-        echo "<script>alert('发表失败！')</script>";
-        echo "<script>window.location.href='add.php'</script>";
+        if ($query) {
+            header('location:index.php');
+        } else {
+            echo "<script>alert('发表失败！')</script>";
+            echo "<script>window.location.href='add.php'</script>";
+        }
     }
 
 }
@@ -49,7 +54,7 @@ if (isset($_POST['sub'])) {
             <option value="<?php echo $rs['cid'] ?>">
 
                 <?php
-                    echo $rs['cname']
+                echo $rs['cname']
                 ?>
 
             </option>

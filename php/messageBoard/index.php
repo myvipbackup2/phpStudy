@@ -1,16 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: lzx
- * Date: 2017/1/10 0010
- * Time: 13:59
- */
-
-include "conn.php";
-
-
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,10 +13,9 @@ include "conn.php";
             background-color: burlywood;
         }
 
-        #article{
-            width: 70%;
+        #article {
+            width: 60%;
             float: left;
-            /*height: 300px;*/
             background-color: whitesmoke;
         }
 
@@ -58,8 +44,8 @@ include "conn.php";
             display: block;
             background-color: cornflowerblue;
         }
-        
-        .catalog{
+
+        .catalog {
             margin: 10px;
             display: inline-block;
             /*text-align: center;*/
@@ -80,13 +66,27 @@ include "conn.php";
 <h2>主页</h2>
 
 <div class="search">
-    <a style="float: left;" href="#">XX已经登录</a>
+
+    <div class="state">
+        <?php
+        if (isset($_COOKIE['id'])) {
+            $id = $_COOKIE['id'];
+            $name = $_COOKIE['name'];
+            echo "<a style='float: left;margin-right: 20px' href='center.php'>" . $name . "已经登录</a>";
+            echo "<a style='float: left;' href='logout.php?id=$id'>注销</a>";
+        } else {
+            echo "<a style='float: left;margin-right: 20px' href='login.php'>登录</a>";
+        }
+        ?>
+    </div>
+
     <div class="searh-text">
         <form action="">
             <input type="text" name="search">
             <input type="submit" name="sub" value="搜索">
         </form>
     </div>
+
     <a style="float: right;" href="add.php">添加文章</a>
 </div>
 
@@ -95,12 +95,17 @@ include "conn.php";
 
     include "conn.php";
 
-    $sql = "select * from blog";
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $sql = "select * from blog,catalog,user where user.uid=blog.uid and catalog.cid=blog.cid and catalog.cid='$id' order by blog.time desc";
+    }else{
+        $sql = "select * from blog,user where user.uid=blog.uid order by blog.time desc";
+
+    }
 
     $query = mysqli_query($link, $sql);
 
     while ($arr = mysqli_fetch_array($query)) {
-
 
         ?>
 
@@ -112,18 +117,17 @@ include "conn.php";
             </div>
             <ul>
                 <li>时间:<span><?php echo $arr['time'] ?></span></li>
-                <li>作者:<span><?php echo $arr['uid'] ?></span></li>
+                <li>作者:<span><?php echo $arr['uname'] ?></span></li>
             </ul>
-            内容:<p>
-<!--                --><?php //echo iconv_substr($arr['content'], 0, 8) ?><!--...-->
+            内容:
+            <p style="background-color:#fff;">
                 <?php
-                    echo $arr['content'];
+                echo $arr['content'];
                 ?>
             </p>
             <hr>
 
         </div>
-
 
         <?php
 
@@ -133,27 +137,28 @@ include "conn.php";
 </div>
 
 <div id="catalog">
-
+    <h3 style="padding: 0 10px">文章分类</h3>
+    <a href="index.php" class="catalog">全部分类</a><br>
     <?php
 
     include "conn.php";
 
     $sql = "select * from CATALOG ";
 
-    $query = mysqli_query($link,$sql);
+    $query = mysqli_query($link, $sql);
 
-    while ($cat=mysqli_fetch_array($query)){
+    while ($cat = mysqli_fetch_array($query)) {
         $cid = $cat['cid'];
-    ?>
+        ?>
 
-        <a href="<?php echo "index.php?'$cid'" ?>" class="catalog">
+        <a href="index.php?id=<?php echo $cid ?>" class="catalog">
             <?php
-                echo $cid.'.';
-                echo $cat['cname'];
+            echo $cat['cname'];
             ?>
         </a>
+        <br>
 
-    <?php
+        <?php
     }
     ?>
 
