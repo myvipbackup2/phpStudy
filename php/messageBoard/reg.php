@@ -24,6 +24,21 @@ if (isset($_POST['sub'])) {
     }
     if (!$flag) {
         echo "<script>alert('用户名非法！')</script>";
+    } else {
+        $sql = "select * from USER WHERE uname = '$name'";
+        $query = mysqli_query($link, $sql);
+        $rs = mysqli_fetch_array($query);
+        if ($rs) {
+            echo "<script>alert('用户名已存在！')</script>";
+        } else {
+            $sql = "insert into USER(uid,uname,pass) VALUES(NULL ,'$name','$pwd') ";
+//            echo $sql;
+//            die();
+            $query = mysqli_query($link, $sql);
+            if ($query) {
+                header('location:login.php');
+            }
+        }
     }
 
 }
