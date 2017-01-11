@@ -12,7 +12,7 @@ include 'conn.php';
 if (isset($_GET['uri'])) {
     $uri = $_GET['uri'];
 } else {
-    $uri = 'index.php';
+    $uri = "index.php";
 }
 
 if (isset($_POST['sub'])) {
@@ -25,7 +25,7 @@ if (isset($_POST['sub'])) {
     if ($rs) {
         setcookie('id', $rs['uid'], time() + 60);
         setcookie('name', $rs['uname'], time() + 60);
-        echo "<script></script>";
+        echo "<script>window.location.href='$uri'</script>";
     }
 
 }
@@ -65,6 +65,7 @@ if (isset($_POST['sub'])) {
         密&nbsp;码：<input type="password" name="pwd">
         <input type="submit" value="登录" name="sub">
 
+        <input type="hidden" name="uri" value="<?php echo $uri ?>">
     </form>
 
 </div>
