@@ -80,13 +80,14 @@ include "conn.php";
 <h2>主页</h2>
 
 <div class="search">
-    <a href="#">XX已经登录</a>
+    <a style="float: left;" href="#">XX已经登录</a>
     <div class="searh-text">
         <form action="">
             <input type="text" name="search">
             <input type="submit" name="sub" value="搜索">
         </form>
     </div>
+    <a style="float: right;" href="add.php">添加文章</a>
 </div>
 
 <div id="article">
@@ -105,13 +106,20 @@ include "conn.php";
 
         <div class="article">
 
-            <div class="title">标题:<a href="#"><span><?php echo $arr['title'] ?></span></a></div>
-            <br>
-            时间:<span><?php echo $arr['time'] ?></span>
-            <br/>
-            作者:<span><?php echo $arr['uid'] ?></span>
-            <br/>
-            内容:<p><?php echo iconv_substr($arr['content'], 0, 8) ?>...</p>
+            <div class="title">
+                标题:<a href="#"><span><?php echo $arr['title'] ?></span></a>
+                <a style="margin-left: 30px" href="">修改</a>|<a href="">删除</a>
+            </div>
+            <ul>
+                <li>时间:<span><?php echo $arr['time'] ?></span></li>
+                <li>作者:<span><?php echo $arr['uid'] ?></span></li>
+            </ul>
+            内容:<p>
+<!--                --><?php //echo iconv_substr($arr['content'], 0, 8) ?><!--...-->
+                <?php
+                    echo $arr['content'];
+                ?>
+            </p>
             <hr>
 
         </div>
