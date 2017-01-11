@@ -68,6 +68,7 @@ include "conn.php";
             border-radius: 2px;
             background: cornflowerblue;
             color: #fff;
+            text-decoration: none;
         }
 
 

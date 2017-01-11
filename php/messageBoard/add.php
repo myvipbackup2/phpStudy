@@ -33,7 +33,7 @@ if (isset($_POST['sub'])) {
 
     标题：<input type="text" name="title">
 
-    <select name="catalog" id="">
+    <select name="catalog">
 
         <?php
 
