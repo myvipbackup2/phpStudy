@@ -125,7 +125,7 @@
 
             <div class="title">
                 标题:<a href="#"><span><?php echo $arr['title'] ?></span></a>
-                <a style="margin-left: 30px" href="edit.php?wid=<?php echo $arr['wid'] ?>">修改</a>|<a href="">删除</a>
+                <a style="margin-left: 30px" href="edit.php?wid=<?php echo $arr['wid'] ?>">修改</a>|<a href="del.php?wid=<?php echo $arr['wid']?>">删除</a>
             </div>
             <ul>
                 <li>时间:<span><?php echo $arr['time'] ?></span></li>
