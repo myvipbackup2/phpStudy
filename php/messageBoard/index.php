@@ -124,12 +124,14 @@
         <div class="article">
 
             <div class="title">
-                标题:<a href="#"><span><?php echo $arr['title'] ?></span></a>
-                <a style="margin-left: 30px" href="edit.php?wid=<?php echo $arr['wid'] ?>">修改</a>|<a href="del.php?wid=<?php echo $arr['wid']?>">删除</a>
+                标题:<a href="all.php?wid=<?php echo $arr['wid'] ?>"><span><?php echo $arr['title'] ?></span></a>
+                <a style="margin-left: 30px" href="edit.php?wid=<?php echo $arr['wid'] ?>">修改</a>|<a
+                        href="del.php?wid=<?php echo $arr['wid'] ?>">删除</a>
             </div>
             <ul>
                 <li>时间:<span><?php echo $arr['time'] ?></span></li>
                 <li>作者:<span><?php echo $arr['uname'] ?></span></li>
+                <li>访问量：<span><?php echo $arr['hits'] ?></li>
             </ul>
             内容:
             <p style="background-color:#fff;">
