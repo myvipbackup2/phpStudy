@@ -64,7 +64,7 @@
 		//die();
 		
 	}
-	$query=mysqli_query($link,$sql);
+	$query=mysqli_query($link,$sql); 
 	while($rs=mysqli_fetch_array($query)){
 ?>
 <h3><a href="all.php?id=<?php echo $rs['wid']?>"><?php echo $rs['title']?></a> |<a href="edit.php?id=<?php echo $rs['wid']?>">修改</a> |<a href="del.php?id=<?php echo $rs['wid']?>">删除</a></h3>

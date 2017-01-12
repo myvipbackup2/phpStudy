@@ -40,10 +40,21 @@ if (isset($_GET['wid'])) {
 <body>
 
 <div style="width: 800px; height: 600px; margin: 20px auto; " class="container">
+    <a href="index.php" style="text-decoration: none;display: block; background-color:cornflowerblue;color: #ffffff; width: 100px;height: 50px; line-height: 50px;text-align: center;border-radius: 10px">
+        &lt; 返回主页
+    </a>
     <h3 style="text-align: center;font-size: 30px">标题：<a href="#"><?php echo $rs['title'] ?></a></h3>
     <span style="color: #ff0000;">访问量：<?php echo $rs['hits'] ?></span>
     <br><br>
-    内容：<p style="font-size: 20px;"><?php echo $rs['content'] ?></p>
+    内容：<p style="font-size: 20px;background-color:darkgray;"><?php echo $rs['content'] ?></p>
+    <form action="all.php" method="post">
+
+        <textarea style="width: 80%;margin: 0 auto; display: block; " name="plcon" id="" cols="30" rows="10"></textarea>
+        <br>
+        <input style="display: block;margin: 0 auto;width: 100px;height: 40px;" type="submit" name="sub" value="评论">
+
+    </form>
+
 </div>
 
 </body>

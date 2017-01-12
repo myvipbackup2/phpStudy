@@ -6,7 +6,9 @@
 		$arr=explode('/',$str);
 		$num=count($arr)-1;
 		$uri=$arr["$num"];
-		header("location:login.php?uri=$uri");
+		//echo 123;  //文件操作 写包体 123
+		header("location:login.php?uri=$uri"); //文件操作 写包头
+		
 		
 		
 	}

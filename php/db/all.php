@@ -5,13 +5,14 @@
 		$sql="update blog set hits=hits+1 where wid='$id'";
 		$query=mysqli_query($link,$sql);
 		if($query){
-			$sql="select * from blog where wid='$id'";
+			$sql="select * from blog,user where user.uid=blog.uid and blog.wid='$id'";
 			$query=mysqli_query($link,$sql);
 			$rs=mysqli_fetch_array($query);
 		}
 	}
 
 ?>
+<h2><?php echo $rs['uname']?>的blog</h2>&nbsp;<a href="sx.php?rid=<?php echo $rs['uid']?>">发送私信</a><br />
 <h3>标题:<?php echo $rs['title']?></h3>
 <span>访问量:<?php echo $rs['hits']?></span><br />
 <p>内容:<?php echo $rs['content']?></p>
