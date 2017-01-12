@@ -81,7 +81,8 @@
     </div>
 
     <div class="searh-text">
-        <form action="">
+
+        <form action="index.php">
             <input type="text" name="search">
             <input type="submit" name="sub" value="搜索">
         </form>
@@ -94,6 +95,11 @@
     <?php
 
     include "conn.php";
+
+    if (isset($_GET['sub'])){
+        $search = $_GET['search'];
+        $sel = "select * from blog WHERE $w ORDER BY blog.time DESC ";
+    }
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
