@@ -17,6 +17,24 @@ if (isset($_GET['wid'])) {
 
 }
 
+if (isset($_POST['sub'])) {
+
+    $con = $_POST['content'];
+    $title = $_POST['title'];
+    $wid = $_POST['hide'];
+    $sql ="update blog set title='$title',content ='$con' where wid='$wid'";
+    $query = mysqli_query($link,$sql);
+    if ($query){
+        echo "<script>alert('更新成功！')</script>";
+        echo "<script>window.location.href='index.php'</script>";
+    }else{
+        echo "<script>alert('更新失败！')</script>";
+    }
+
+}else{
+
+}
+
 
 ?>
 
@@ -40,17 +58,13 @@ if (isset($_GET['wid'])) {
 <body>
 
 <div class="container">
-    <form action="edit.php">
-        <input type="hidden" name="hide" value="<?php echo $rs['title']; ?>">
-        标题：<input type="text" value="<?php echo $rs['title'] ?>">
+    <form action="edit.php" method="post">
+        <input type="hidden" name="hide" value="<?php echo $rs['wid']; ?>">
+        标题：<input type="text" name="title" value="<?php echo $rs['title'] ?>">
         <br>
-        <textarea name="content" id="" cols="30" rows="10">
-            <?php
-            echo $rs['content'];
-            ?>
-        </textarea>
+        <textarea name="content" id="" cols="30" rows="10"><?php echo $rs['content'];?></textarea>
         <br>
-        <input style="margin-left: 60px" type="submit" value="更新文章">
+        <input style="margin-left: 60px" name="sub" type="submit" value="更新文章">
     </form>
 </div>
 
