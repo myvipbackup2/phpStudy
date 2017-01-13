@@ -65,4 +65,55 @@ class calendarClass
         echo "</tr>";
     }
 
+    public function prevYear($year, $month)
+    {
+        $year--;
+        if ($year <= 1970) {
+            $year = 1970;
+        }
+        return "year=$year&month=$month";
+    }
+
+    public function prevMonth($year, $month)
+    {
+        if ($month == 1) {
+            $month = 12;
+            $year--;
+        } else {
+            $month--;
+        }
+        return "year=$year&month=$month";
+    }
+
+    public function nextYear($year, $month)
+    {
+        $year++;
+        if ($year >= 2038) {
+            $year = 2038;
+        }
+        return "year=$year&month=$month";
+    }
+
+    public function nextMonth($year, $month)
+    {
+        if ($month == 12) {
+            $month = 1;
+            $year++;
+        } else {
+            $month++;
+        }
+        return "year=$year&month=$month";
+    }
+
+    public function changeDays()
+    {
+        echo "<tr>";
+        echo "<td><a href='?" . $this->prevYear($this->year, $this->month) . "'>&lt;&lt;</a></td>";
+        echo "<td><a href='?" . $this->prevMonth($this->year, $this->month) . "'>&lt;</a></td>";
+        echo "<td colspan='3'>" . $this->year . "年" . $this->month . "月" . "</td>";
+        echo "<td><a href='?" . $this->nextMonth($this->year, $this->month) . "'>&gt;</a></td>";
+        echo "<td><a href='?" . $this->nextYear($this->year, $this->month) . "'>&gt;&gt;</a></td>";
+        echo "</tr>";
+    }
+
 }
