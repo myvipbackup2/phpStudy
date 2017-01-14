@@ -55,4 +55,11 @@ class User extends CI_Controller
 
     }
 
+    public function check()
+    {
+        $name = $this->input->post('uname');
+        $this->load->model('user_model');
+        $this->user_model->checkName($name);
+    }
+
 }

@@ -19,6 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>登录</title>
     <link rel="stylesheet" href="assets/css/login.css">
+    <script src="assets/js/jquery.min.js"></script>
 </head>
 <body>
 
@@ -39,5 +40,11 @@
 
 </div>
 
+
+<script>
+    $(function () {
+
+    });
+</script>
 </body>
 </html>
