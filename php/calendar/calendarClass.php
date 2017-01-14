@@ -18,7 +18,7 @@ class calendarClass
         $this->year = $_GET['year'] ? $_GET['year'] : date('Y');
         $this->month = $_GET['month'] ? $_GET['month'] : date('m');
         $this->days = date('t', mktime(0, 0, 0, $this->month, 1, $this->year));
-        $this->weeknum = date('w', mktime(0, 0, 0, 2, 1, $this->year));
+        $this->weeknum = date('w', mktime(0, 0, 0, $this->month, 2, $this->year));
     }
 
 
