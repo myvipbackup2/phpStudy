@@ -18,6 +18,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>登录</title>
+    <base href="<?php echo site_url() ?>">
     <link rel="stylesheet" href="assets/css/login.css">
     <script src="assets/js/jquery.min.js"></script>
 </head>
@@ -25,7 +26,7 @@
 
 <div class="container">
     <h2>登录</h2>
-    <form action="login.php" method="post">
+    <form action="<?php echo site_url('user/do_login') ?>" method="post">
 
         用户名：<input type="text" name="name">
         <br>
@@ -35,7 +36,6 @@
         <br>
         <input type="submit" value="登录" name="sub">
 
-        <input type="hidden" name="uri" value="<?php echo $uri ?>">
     </form>
 
 </div>

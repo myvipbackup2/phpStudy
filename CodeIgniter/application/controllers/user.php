@@ -48,7 +48,7 @@ class User extends CI_Controller
         } else {
             $rs = $this->user_model->get_insert($name, $pass);
             if ($rs) {
-                redirect('user/login');
+                $this->load->view('login.php');
             }
         }
 //        第三步：如果不存在insert数据库，插入成功跳转登录页
@@ -60,6 +60,19 @@ class User extends CI_Controller
         $name = $this->input->post('uname');
         $this->load->model('user_model');
         $this->user_model->checkName($name);
+    }
+
+    public function do_login()
+    {
+        $name = $this->input->post('name');
+        $pass = $this->input->post('pwd');
+        $this->load->model('user_model');
+//        $this->user_model->
+    }
+
+    public function get_sel()
+    {
+
     }
 
 }
