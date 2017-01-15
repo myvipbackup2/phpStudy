@@ -16,7 +16,12 @@ class User_model extends CI_Model
 //        原生sql方法
 //        $query = $this->db->query("select * from user where uname='$name'");
 //        CI的 QueryBuilder方法
-        $query = $this->db->get_where('user', array('uname' => $name));
+        $arr = array(
+            'uname' => $name
+        );
+        $query = $this->db->get_where('user', $arr);
+        //var_dump($query->row());
+        // die();
         return $query->row();
     }
 
@@ -38,6 +43,17 @@ class User_model extends CI_Model
         );
         $query = $this->db->get_where('user', $arr);
         return $query->row();
+    }
+
+    public function get_all_rows()
+    {
+        $query = $this->db->count_all('blog');
+        return $query;
+    }
+
+    public function fenye($startNum, $pageNum)
+    {
+
     }
 
 }

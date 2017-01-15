@@ -16,11 +16,21 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->library('pagination');
     }
 
     public function index()
     {
-        echo '默认主页';
+        $rows = $this->user_model->get_all_rows();
+        $config['base_url'] = 'http://localhost:63342/phpStudy/CodeIgniter/user/index';
+        $config['total_rows'] = $rows;
+        $config['per_page'] = 5;
+        $config['first_link'] = '首页';
+        $config['last_link'] = '末页';
+        $this->pagination->initialize($config);
+        $startNum = $this->uri->segment(3) == null ? 0 : $this->uri->segment(3);
+        $rs = $this->user_model->fenye($startNum, $config['per_page']);
+        $this->load->view('index.php');
     }
 
     public function reg()
@@ -33,15 +43,12 @@ class User extends CI_Controller
     {
         $name = $this->input->post('name');
         $pass = $this->input->post('pwd');
-
 //        第一步：去数据库中查询用户名是否存在
 //        加载user_model类,可以写在构造函数里
 //        $this->load->model('user_model');
 //        调用下面的方法
-
         $rs = $this->user_model->checkName($name);
 //        第二步：如果存在，重新加载reg()
-
         if ($rs) {
 //            $this->reg();
             redirect('user/reg');
@@ -57,8 +64,10 @@ class User extends CI_Controller
     public function check()
     {
         $name = $this->input->post('uname');
-        $this->load->model('user_model');
-        $this->user_model->checkName($name);
+        $rs = $this->user_model->checkName($name);
+        if ($rs) {
+            echo "rename";
+        }
     }
 
     public function login()
@@ -79,15 +88,14 @@ class User extends CI_Controller
             );
             if ($hours) {
                 $this->load->helper('cookie');
-                set_cookie("name",$arr['name'],7200);
-                set_cookie("id",$arr['id'],7200);
+                set_cookie("name", $arr['name'], 7200);
+                set_cookie("id", $arr['id'], 7200);
             } else {
                 $this->session->set_userdata($arr);
             }
             redirect('user/index');
         }
     }
-
 
 
 }

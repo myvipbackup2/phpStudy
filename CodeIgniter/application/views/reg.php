@@ -30,6 +30,8 @@
 
         用户名：&nbsp;<input type="text" name="name" id="name">
         <br>
+        <span style="color: red;" id="errName"></span>
+        <br>
         密&nbsp;码：&nbsp;<input type="password" name="pwd" id="pwd">
         <br>
         再次输入：<input type="password" name="rpdw" id="rpwd">
@@ -50,10 +52,10 @@
         $('#name').blur(function () {
             var $name = $(this).val();
             $.post("<?php echo site_url('user/check') ?>", "uname=" + $name, function (data) {
-                if (data == 'success') {
-                    console.log('success');
-                } else {
-                    console.log('failed');
+                if (data == 'rename') {
+                    $('#errName').html('用户名重名！');
+                }else {
+                    $('#errName').html('');
                 }
             }, 'text');
         });
