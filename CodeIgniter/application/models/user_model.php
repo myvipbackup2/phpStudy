@@ -30,10 +30,14 @@ class User_model extends CI_Model
         return $query;
     }
 
-    public function login()
+    public function check_login($name, $pass)
     {
-
-        $this->load->view('login.php');
+        $arr = array(
+            'uname' => $name,
+            'pass' => $pass
+        );
+        $query = $this->db->get_where('user', $arr);
+        return $query->row();
     }
 
 }
