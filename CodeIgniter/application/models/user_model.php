@@ -53,7 +53,8 @@ class User_model extends CI_Model
 
     public function fenye($startNum, $pageNum)
     {
-
+        $query = $this->db->get('blog', $pageNum, $startNum);
+        return $query->result();
     }
 
 }

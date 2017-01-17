@@ -30,7 +30,8 @@ class User extends CI_Controller
         $this->pagination->initialize($config);
         $startNum = $this->uri->segment(3) == null ? 0 : $this->uri->segment(3);
         $rs = $this->user_model->fenye($startNum, $config['per_page']);
-        $this->load->view('index.php');
+        $arr['bloglist'] = $rs;
+        $this->load->view('index.php',$arr);
     }
 
     public function reg()

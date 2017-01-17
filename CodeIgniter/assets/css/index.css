@@ -1,0 +1,48 @@
+h2 {
+    text-align: center;
+    background-color: burlywood;
+}
+
+#article {
+    width: 60%;
+    float: left;
+    background-color: whitesmoke;
+}
+
+#catalog {
+    background-color: wheat;
+    width: 20%;
+    float: right;
+}
+
+.article {
+    margin: 20px;
+}
+
+.search {
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 20px;
+    background-color: whitesmoke;
+}
+
+.searh-text {
+    display: inline-block;
+}
+
+.title {
+    display: block;
+    background-color: cornflowerblue;
+}
+
+.catalog {
+    margin: 10px;
+    display: inline-block;
+    /*text-align: center;*/
+    padding: 2px;
+    /*width: 60px;*/
+    border-radius: 2px;
+    background: cornflowerblue;
+    color: #fff;
+    text-decoration: none;
+}
