@@ -19,6 +19,7 @@ class Blog extends CI_Controller
 
     public function index()
     {
+//        $rs =
         $this->load->view('index_logined.php');
     }
 

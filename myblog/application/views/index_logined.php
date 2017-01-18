@@ -65,7 +65,7 @@
                                                              class="SmallPortrait" user="154693" align="absmiddle"></a>
             </div>
             <div id="lnks">
-                <strong>Johnny的博客</strong>
+                <strong><?php echo $_SESSION['name'] ?>的博客</strong>
                 <div><a href="index_logined.htm">TA的博客列表</a>&nbsp;|
                     <a href="sendMsg.htm">发送留言</a></div>
             </div>
