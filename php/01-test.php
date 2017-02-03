@@ -6,7 +6,6 @@
  * Time: 9:44
  */
 
-
 //获取当前PHP的URL地址
 //echo '<pre>';
 //var_dump($_SERVER);
